@@ -1,6 +1,9 @@
+const { seconds } = require("@nomicfoundation/hardhat-network-helpers/dist/src/helpers/time/duration");
+
 require("@nomicfoundation/hardhat-toolbox");
 require("@chainlink/env-enc").config()
 require("./tasks/index")
+require("hardhat-deploy")
 
 const SEPOLIA_URL = process.env.SEPOLIA_URL
 const PRIVATE_KEY = process.env.PRIVATE_KEY
@@ -29,4 +32,12 @@ module.exports = {
   //   // Doesn't need an API key
   //   enabled: true
   // }
+  namedAccounts: {
+    firstAccount: {
+      default: 0
+    },
+    secondAccount: {
+      default: 1
+    }
+  }
 };
