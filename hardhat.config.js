@@ -39,5 +39,11 @@ module.exports = {
     secondAccount: {
       default: 1
     }
+  },
+  mocha: {
+    timeout: 300000
+  },
+  gasReporter: {
+    enabled: true
   }
 };

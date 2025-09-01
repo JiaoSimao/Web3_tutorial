@@ -25,18 +25,21 @@ module.exports = async({getNamedAccounts, deployments}) => {
 
     //判断是本地环境还是sepolia
     let dataFeedAddr;
+    let confirmations
     if(developmentChains.includes(network.name)) {
         const mockV3Aggregator = await deployments.get("MockV3Aggregator")
         dataFeedAddr = mockV3Aggregator.address
+        confirmations = 0
     }else {
         dataFeedAddr = nerworkConfid[network.config.chainId].ethUsdDataFeed
+        confirmations = CONFIRMATIONS
     }
     
     const fundMe = await deploy("FundMe", {
         from: firstAccount,
         args: [LOCKTIME, dataFeedAddr],
         log: true,
-        waitConfirmations: CONFIRMATIONS
+        waitConfirmations: confirmations
     })
 
     if (hre.network.config.chainId == 11155111 && process.env.ETHERSCAN_API_KEY) {

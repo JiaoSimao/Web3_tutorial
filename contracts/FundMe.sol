@@ -24,6 +24,8 @@ contract FundMe {
     bool public getFundSuccess = false;
     AggregatorV3Interface public dataFeed;
 
+    event FundWithdrawnByOwner(uint256);
+    event ReFundWithdrawnByOwner(address, uint256);
 
     constructor(uint256 _lockTime, address dataFeedAddr) {
         dataFeed = AggregatorV3Interface(dataFeedAddr);
@@ -68,19 +70,24 @@ contract FundMe {
         // require(success, "tx failed");
         //call
         bool success;
-        (success, ) = payable(msg.sender).call{value: address(this).balance}("");
+        uint256 balance = address(this).balance;
+        (success, ) = payable(msg.sender).call{value: balance}("");
         require(success, "transfer tx failed");
         fundersToAmount[msg.sender] = 0;
         getFundSuccess = true;
+        //emit event
+        emit FundWithdrawnByOwner(balance);
     }
 
     function refund() external payable windowClose{
         require(convertEthToUsd(address(this).balance) < TARGET, "Targer is not reached");
-        require(fundersToAmount[msg.sender] > 0, "thers is no fund for you");
+        require(fundersToAmount[msg.sender] > 0, "there is no fund for you");
         bool success;
-        (success, ) = payable(msg.sender).call{value: fundersToAmount[msg.sender]}("");
+        uint256 balance = fundersToAmount[msg.sender];
+        (success, ) = payable(msg.sender).call{value: balance}("");
         require(success, "transfer tx failed");
         fundersToAmount[msg.sender] = 0;
+        emit ReFundWithdrawnByOwner(msg.sender, balance);
     }
 
     function setFunderToAmount(address funder, uint256 amountToUpdate) external {

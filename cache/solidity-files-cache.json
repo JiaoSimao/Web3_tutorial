@@ -112,8 +112,8 @@
       ]
     },
     "/Users/jsm/hardhat-project/Web3_tutorial/contracts/FundMe.sol": {
-      "lastModificationDate": 1756631078448,
-      "contentHash": "0917c23a7e7756aaec103d62087b012e",
+      "lastModificationDate": 1756692509945,
+      "contentHash": "881061c251d8417e200f3cade2fc9683",
       "sourceName": "contracts/FundMe.sol",
       "solcConfig": {
         "version": "0.8.28",
@@ -142,7 +142,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -187,7 +187,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -197,49 +197,6 @@
       ],
       "artifacts": [
         "AggregatorV3Interface"
-      ]
-    },
-    "/Users/jsm/hardhat-project/Web3_tutorial/contracts/Lock.sol": {
-      "lastModificationDate": 1756434438848,
-      "contentHash": "5daa40c22d3a9841af8edcaaabc57c7c",
-      "sourceName": "contracts/Lock.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.28"
-      ],
-      "artifacts": [
-        "Lock"
       ]
     },
     "/Users/jsm/hardhat-project/Web3_tutorial/node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV2V3Interface.sol": {
@@ -273,7 +230,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -319,7 +276,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -362,7 +319,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -407,7 +364,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },

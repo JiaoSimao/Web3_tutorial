@@ -9,7 +9,7 @@ async function main() {
     const fundMeFactory = await ethers.getContractFactory("FundMe")
     console.log("contract deploying")
     //deploy constract from factory
-    const fundme = await fundMeFactory.deploy(300)
+    const fundme = await fundMeFactory.deploy(180)
     await fundme.waitForDeployment()
     console.log(`constract has been deployed successfully, contract addrss is ${fundme.target}`);
     
@@ -17,7 +17,7 @@ async function main() {
     if (hre.network.config.chainId == 11155111 && process.env.ETHERSCAN_API_KEY) {
         console.log("waiting for 5 confirmations")
         await fundme.deploymentTransaction().wait(5)
-        await verifyFundMe(fundme.target, [300])
+        await verifyFundMe(fundme.target, [180])
     } else {
         console.log("verification skipped...")
     }
